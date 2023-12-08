@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
 
-const EstimateScreen = ({
+interface EstimateScreenProps {
+  formData: {
+    userName: string;
+    userEmail: string;
+    appDescription: string;
+  };
+  handleChangeInput: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handlePrevStep: () => void;
+  handleNextStep: () => void;
+  handleSubmitFormData: () => void;
+  totalCost: string;
+  handleCostPerFPChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  costPerFP: number;
+  saveData: () => Promise<void>;
+}
+
+const EstimateScreen: React.FC<EstimateScreenProps> = ({
   formData,
   handleChangeInput,
   handlePrevStep,
