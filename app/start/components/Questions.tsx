@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
-const Questions = ({ formData, handleChangeInput, handleNextStep }) => {
+interface QuestionsProps {
+  formData: {
+    softwareType: string;
+    noIntegrationRequired: number;
+    screens: number;
+  };
+  handleChangeInput: (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  handleNextStep: () => void;
+}
+
+const Questions: React.FC<QuestionsProps> = ({ formData, handleChangeInput, handleNextStep }) => {
   const isFormValid = () => {
     const requiredFields = ['softwareType', 'noIntegrationRequired', 'screens'];
 
@@ -8,7 +18,7 @@ const Questions = ({ formData, handleChangeInput, handleNextStep }) => {
   };
 
   return (
-    <div data-testid="questions" className="bg-lime-950  min-h-screen flex items-center justify-center">
+    <div data-testid="questions" className="bg-lime-950 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Software Cost Estimation</h1>
         <form data-testid="questions-form">

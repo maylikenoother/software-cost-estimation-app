@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
-const FirstScreenForm = ({ formData, handleChangeInput, handlePrevStep, handleNextStep }) => {
+interface FirstScreenFormProps {
+  formData: {
+    firstScreenName: string;
+    firstInputFields: number;
+    firstDataComplexity: string;
+  };
+  handleChangeInput: (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  handlePrevStep: () => void;
+  handleNextStep: () => void;
+}
+
+const FirstScreenForm: React.FC<FirstScreenFormProps> = ({
+  formData,
+  handleChangeInput,
+  handlePrevStep,
+  handleNextStep,
+}) => {
   const isFormValid = () => {
     return (
       formData.firstScreenName !== '' &&
@@ -10,7 +26,7 @@ const FirstScreenForm = ({ formData, handleChangeInput, handlePrevStep, handleNe
   };
 
   return (
-    <div data-testid="first"  className="bg-lime-950 min-h-screen flex items-center justify-center">
+    <div data-testid="first" className="bg-lime-950 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">First Screen</h2>
         <form data-testid="firstScreen-form">

@@ -1,25 +1,51 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
-const WeightQuestions = ({ formData, handleChangeInput, handlePrevStep, handleNextStep }) => {
+interface WeightQuestionsProps {
+    formData: {
+      backupRecovery: string;
+      dataCommunication: string;
+      distributedProcessing: string;
+      performance: string;
+      operationalEnvironment: string;
+      dataEntry: string;
+      multipleScreenEntry: string;
+      masterFiles: string;
+      complexFiles: string;
+      internalProcessing: string;
+      reusableCode: string;
+      conversion: string;
+      multipleInstallation: string;
+      easyUse: string;
+    };
+    handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handlePrevStep: () => void;
+    handleNextStep: () => void;
+  }
 
+const WeightQuestions: React.FC<WeightQuestionsProps> = ({
+    formData,
+    handleChangeInput,
+    handlePrevStep,
+    handleNextStep,
+  }) => {
     const isFormValid = () => {
-        return (
-            formData.backupRecovery !== '' &&
-            formData.dataCommunication !== '' &&
-            formData.distributedProcessing !== '' &&
-            formData.performance !== '' &&
-            formData.operationalEnvironment !== '' &&
-            formData.dataEntry !== '' &&
-            formData.multipleScreenEntry !== '' &&
-            formData.masterFiles !== '' &&
-            formData.complexFiles !== '' &&
-            formData.internalProcessing !== '' &&
-            formData.reusableCode !== '' &&
-            formData.conversion !== '' &&
-            formData.multipleInstallation !== '' &&
-            formData.easyUse !== ''
-        );
-      };
+      return (
+        formData.backupRecovery !== '' &&
+        formData.dataCommunication !== '' &&
+        formData.distributedProcessing !== '' &&
+        formData.performance !== '' &&
+        formData.operationalEnvironment !== '' &&
+        formData.dataEntry !== '' &&
+        formData.multipleScreenEntry !== '' &&
+        formData.masterFiles !== '' &&
+        formData.complexFiles !== '' &&
+        formData.internalProcessing !== '' &&
+        formData.reusableCode !== '' &&
+        formData.conversion !== '' &&
+        formData.multipleInstallation !== '' &&
+        formData.easyUse !== ''
+      );
+    };
 
   return (
     <div data-testid="weight"  className="bg-lime-950 min-h-screen flex items-center justify-center">

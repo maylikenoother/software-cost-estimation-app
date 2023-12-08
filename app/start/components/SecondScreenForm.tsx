@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
-const SecondScreenForm = ({ formData, handleChangeInput, handlePrevStep, handleNextStep, handleSubmitFormData }) => {
+
+interface SecondScreenFormProps {
+  formData: {
+    secondScreenName: string;
+    secondInputFields: string;
+    secondDataComplexity: string;
+  };
+  handleChangeInput: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  handlePrevStep: () => void;
+  handleNextStep: () => void;
+  handleSubmitFormData: () => void;
+}
+
+const SecondScreenForm: React.FC<SecondScreenFormProps> = ({
+  formData,
+  handleChangeInput,
+  handlePrevStep,
+  handleNextStep,
+  handleSubmitFormData,
+}) => {
   const isFormValid = () => {
     return (
       formData.secondScreenName !== '' &&
@@ -49,7 +68,7 @@ const SecondScreenForm = ({ formData, handleChangeInput, handlePrevStep, handleN
                 onChange={(e) => handleChangeInput(e)}
                 value={formData.secondDataComplexity}
               >
-                  <option value="">-.-</option>
+                <option value="">-.-</option>
                 <option value="low">low</option>
                 <option value="average">average</option>
                 <option value="high">high</option>

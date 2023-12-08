@@ -1,6 +1,18 @@
 import React from 'react';
 
-const Receipt = ({ formData, totalFunctionPoint, costPerFP, totalCost, handlePrevStep }) => {
+interface ReceiptProps {
+  formData: {
+    userName: string;
+    userEmail: string;
+    appDescription: string;
+  };
+  totalFunctionPoint: number;
+  costPerFP: number;
+  totalCost: number;
+  handlePrevStep: () => void;
+}
+
+const Receipt: React.FC<ReceiptProps> = ({ formData, totalFunctionPoint, costPerFP, totalCost, handlePrevStep }) => {
   return (
     <div data-testid="Receipt" className="bg-gray-100 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
