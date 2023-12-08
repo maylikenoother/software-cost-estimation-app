@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
+
+interface FormData {
+  userName: string;
+  userEmail: string;
+  appDescription: string;
+}
+
 interface EstimateScreenProps {
-  formData: {
-    userName: string;
-    userEmail: string;
-    appDescription: string;
-  };
+  formData: FormData;
   handleChangeInput: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handlePrevStep: () => void;
   handleNextStep: () => void;
