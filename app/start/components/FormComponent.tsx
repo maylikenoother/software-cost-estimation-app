@@ -9,6 +9,35 @@ import Receipt from '../components/Receipt'
 import User from '../../../models/user.ts'
 
 
+interface FormData {
+  softwareType: string;
+  noIntegrationRequired: string;
+  screens: string;
+  backupRecovery: string;
+  dataCommunication: string;
+  distributedProcessing: string;
+  performance: string;
+  operationalEnvironment: string;
+  dataEntry: string;
+  multipleScreenEntry: string;
+  masterFiles: string;
+  complexFiles: string;
+  internalProcessing: string;
+  reusableCode: string;
+  conversion: string;
+  multipleInstallation: string;
+  easyUse: string;
+  firstScreenName: string;
+  firstInputFields: string;
+  firstDataComplexity: string;
+  secondScreenName: string;
+  secondInputFields: string;
+  secondDataComplexity: string;
+  userName: string;
+  userEmail: string;
+  appDescription: string;
+}
+
 const initialFormData = {
   softwareType: '',
   noIntegrationRequired: '',
