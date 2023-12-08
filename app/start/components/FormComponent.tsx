@@ -8,30 +8,29 @@ import EstimateScreen from '../components/EstimateScreen'
 import Receipt from '../components/Receipt'
 import User from '../../../models/user.ts'
 
-
 interface FormData {
   softwareType: string;
-  noIntegrationRequired: string;
-  screens: string;
-  backupRecovery: string;
-  dataCommunication: string;
-  distributedProcessing: string;
-  performance: string;
-  operationalEnvironment: string;
-  dataEntry: string;
-  multipleScreenEntry: string;
-  masterFiles: string;
-  complexFiles: string;
-  internalProcessing: string;
-  reusableCode: string;
-  conversion: string;
-  multipleInstallation: string;
-  easyUse: string;
+  noIntegrationRequired: number;
+  screens: number;
+  backupRecovery: number;
+  dataCommunication: number;
+  distributedProcessing: number;
+  performance: number;
+  operationalEnvironment: number;
+  dataEntry: number;
+  multipleScreenEntry: number;
+  masterFiles: number;
+  complexFiles: number;
+  internalProcessing: number;
+  reusableCode: number;
+  conversion: number;
+  multipleInstallation: number;
+  easyUse: number;
   firstScreenName: string;
-  firstInputFields: string;
+  firstInputFields: number;
   firstDataComplexity: string;
   secondScreenName: string;
-  secondInputFields: string;
+  secondInputFields: number;
   secondDataComplexity: string;
   userName: string;
   userEmail: string;
