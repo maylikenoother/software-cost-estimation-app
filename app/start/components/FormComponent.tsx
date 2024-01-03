@@ -89,7 +89,7 @@ const FormComponent = () => {
     }
   };
 
-  const calculateCAF = (formData) => {
+  const calculateCAF = (formData: InitialFormData) => {
     // Define your questions and their respective fields in formData
     const questionFields = [
       'backupRecovery',
@@ -123,7 +123,7 @@ const FormComponent = () => {
     return CAF;
   };
 
-  const calculateFP = (formData) => {
+  const calculateFP = (formData: InitialFormData) => {
     const CAF = calculateCAF(formData); 
     
     const derivedComplexity = getHigherComplexity(
