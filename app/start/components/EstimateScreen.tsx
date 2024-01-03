@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { InitialFormData } from './FormComponent'
+
 interface EstimateScreenProps {
   formData: InitialFormData;
   handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
