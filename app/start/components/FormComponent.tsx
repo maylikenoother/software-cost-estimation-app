@@ -167,8 +167,12 @@ const FormComponent = () => {
     let UFP= 0;
   
     for (const type in counts) {
-      UFP += counts[type] * complexityWeights[derivedComplexity][type];
+      if (counts.hasOwnProperty(type)) {
+        // Use type assertion to let TypeScript know it's a valid property
+        UFP += counts[type as keyof typeof counts] * complexityWeights[derivedComplexity][type as keyof typeof complexityWeights];
+      }
     }
+    
 
 
     const totalFunctionPoint = UFP * CAF
