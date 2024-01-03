@@ -167,7 +167,7 @@ const FormComponent = () => {
     let UFP = 0;
   
     for (const type in counts) {
-      if (counts.hasOwnProperty(type)) {
+      if (counts.hasOwnProperty(type) && complexityWeights[derivedComplexity].hasOwnProperty(type)) {
         // Use type assertion to let TypeScript know it's a valid property
         UFP +=
           (counts[type as keyof typeof counts] as number) *
@@ -188,6 +188,7 @@ const FormComponent = () => {
   
     return newTotalCost;
   };
+  
   
   
 
