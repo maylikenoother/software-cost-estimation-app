@@ -6,7 +6,7 @@ import FirstScreenForm from '../components/FirstScreenForm'
 import SecondScreenForm from '../components/SecondScreenForm'
 import EstimateScreen from '../components/EstimateScreen'
 import Receipt from '../components/Receipt'
-import User from '../../../models/user.ts'
+import User from '../../../models/user'
 
 export interface InitialFormData {
 
