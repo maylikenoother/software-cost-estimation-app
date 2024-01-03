@@ -6,6 +6,7 @@ import { InitialFormData } from './FormComponent'
 interface EstimateScreenProps {
   formData: InitialFormData;
   handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChangeTextArea: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handlePrevStep: () => void;
   handleNextStep: () => void;
   totalCost: string;
@@ -19,6 +20,7 @@ const EstimateScreen: React.FC<EstimateScreenProps> = ({
   handleChangeInput,
   handlePrevStep,
   handleNextStep,
+  handleChangeTextArea,
   totalCost,
   costPerFP,
   handleCostPerFPChange,
@@ -124,7 +126,7 @@ const EstimateScreen: React.FC<EstimateScreenProps> = ({
               <textarea
                 name="appDescription"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
-                onChange={handleChangeInput}
+                onChange={handleChangeTextArea}
                 value={formData.appDescription}
               />
               <span className="text-red-500 text-xs">{formErrors.appDescription}</span>
@@ -165,6 +167,7 @@ EstimateScreen.propTypes = {
   handleChangeInput: PropTypes.func.isRequired,
   handlePrevStep: PropTypes.func.isRequired,
   handleNextStep: PropTypes.func.isRequired,
+  handleChangeTextArea: PropTypes.func.isRequired,
   totalCost: PropTypes.string.isRequired,
   costPerFP: PropTypes.number.isRequired,
   handleCostPerFPChange: PropTypes.func.isRequired,

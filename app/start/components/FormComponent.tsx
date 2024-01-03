@@ -212,6 +212,16 @@ const FormComponent = () => {
       [fieldName]: fieldValue,
     }));
   };
+
+  const handleChangeTextArea = (event) => {
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [fieldName]: fieldValue,
+    }));
+  };
   
   const handleSubmitFormData = () => {
     const newTotalCost = calculateFP(formData);
@@ -317,6 +327,7 @@ const FormComponent = () => {
           handleChangeInput={handleChangeInput}
           handlePrevStep={handlePrevStep}
           handleNextStep={handleNextStep}
+          handleChangeTextArea={handleChangeTextArea}
           totalCost={totalCost}
           costPerFP={costPerFP}
         handleCostPerFPChange={handleCostPerFPChange}
