@@ -9,6 +9,7 @@ import Receipt from '../components/Receipt'
 import User from '../../../models/user'
 
 export interface InitialFormData {
+  [key: string]: string | number;
 
   softwareType: string;
   noIntegrationRequired: number;
