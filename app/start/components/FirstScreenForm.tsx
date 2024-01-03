@@ -20,7 +20,7 @@ const FirstScreenForm: React.FC<FirstScreenFormProps> = ({
   const isFormValid = () => {
     return (
       formData.firstScreenName !== '' &&
-      formData.firstInputFields !== '' &&
+      formData.firstInputFields !== 0 &&
       formData.firstDataComplexity !== 'none'
     );
   };
