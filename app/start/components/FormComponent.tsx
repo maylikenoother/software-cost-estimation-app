@@ -133,11 +133,11 @@ const FormComponent = () => {
     );
   
     const counts = {
-      EIs: parseInt(formData.firstInputFields) + parseInt(formData.secondInputFields),
-      EOs: parseInt(formData.screens),
-      EQs: parseInt(formData.screens),
-      ILFs: parseInt(formData.screens) + parseInt(formData.noIntegrationRequired),
-      EIFs: parseInt(formData.noIntegrationRequired),
+      EIs: formData.firstInputFields + formData.secondInputFields,
+      EOs: formData.screens,
+      EQs: formData.screens,
+      ILFs: formData.screens + formData.noIntegrationRequired,
+      EIFs: formData.noIntegrationRequired,
     };
   
     const complexityWeights = {
