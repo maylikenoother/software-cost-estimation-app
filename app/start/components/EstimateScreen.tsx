@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes , { Validator }  from 'prop-types';
 
 import { InitialFormData } from './FormComponent'
 
@@ -162,7 +162,32 @@ const EstimateScreen: React.FC<EstimateScreenProps> = ({
 
 EstimateScreen.propTypes = {
   formData: PropTypes.shape({
-    // define the shape of formData as per InitialFormData
+    softwareType: PropTypes.string.isRequired,
+    noIntegrationRequired: PropTypes.number.isRequired,
+    screens:  PropTypes.number.isRequired,
+    backupRecovery:  PropTypes.number.isRequired,
+    dataCommunication: PropTypes.number.isRequired,
+    distributedProcessing:  PropTypes.number.isRequired,
+    performance:  PropTypes.number.isRequired,
+    operationalEnvironment:  PropTypes.number.isRequired,
+    dataEntry:  PropTypes.number.isRequired,
+    multipleScreenEntry:  PropTypes.number.isRequired,
+    masterFiles:  PropTypes.number.isRequired,
+    complexFiles:  PropTypes.number.isRequired,
+    internalProcessing:  PropTypes.number.isRequired,
+    reusableCode: PropTypes.number.isRequired,
+    conversion:  PropTypes.number.isRequired,
+    multipleInstallation:  PropTypes.number.isRequired,
+    easyUse:  PropTypes.number.isRequired,
+    firstScreenName: PropTypes.string.isRequired,
+    firstInputFields: PropTypes.number.isRequired,
+    firstDataComplexity: PropTypes.string.isRequired,
+    secondScreenName: PropTypes.string.isRequired,
+    secondInputFields:  PropTypes.number.isRequired,
+    secondDataComplexity: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+    userEmail: PropTypes.string.isRequired,
+    appDescription: PropTypes.string.isRequired,
   }).isRequired,
   handleChangeInput: PropTypes.func.isRequired,
   handlePrevStep: PropTypes.func.isRequired,
