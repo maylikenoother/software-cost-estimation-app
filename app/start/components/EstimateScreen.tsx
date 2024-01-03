@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const EstimateScreen = ({
+interface EstimateScreenProps {
+  formData: InitialFormData;
+  handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePrevStep: () => void;
+  handleNextStep: () => void;
+  totalCost: string;
+  costPerFP: number;
+  handleCostPerFPChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  saveData: () => void;
+}
+
+const EstimateScreen: React.FC<EstimateScreenProps> = ({
   formData,
   handleChangeInput,
   handlePrevStep,
   handleNextStep,
-  handleSubmitFormData,
   totalCost,
-  handleCostPerFPChange,
   costPerFP,
+  handleCostPerFPChange,
   saveData,
 }) => {
   const [formErrors, setFormErrors] = useState({
@@ -146,5 +156,17 @@ const EstimateScreen = ({
   );
 };
 
+EstimateScreen.propTypes = {
+  formData: PropTypes.shape({
+    // define the shape of formData as per InitialFormData
+  }).isRequired,
+  handleChangeInput: PropTypes.func.isRequired,
+  handlePrevStep: PropTypes.func.isRequired,
+  handleNextStep: PropTypes.func.isRequired,
+  totalCost: PropTypes.string.isRequired,
+  costPerFP: PropTypes.number.isRequired,
+  handleCostPerFPChange: PropTypes.func.isRequired,
+  saveData: PropTypes.func.isRequired,
+};
 
 export default EstimateScreen;
