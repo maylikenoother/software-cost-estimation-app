@@ -125,9 +125,9 @@ const FormComponent = () => {
   };
 
   const calculateFP = (formData: InitialFormData) => {
-    const CAF = calculateCAF(formData); 
-    
-    const derivedComplexity: 'low' | 'average' | 'high' = getHigherComplexity(
+    const CAF = calculateCAF(formData);
+  
+    const derivedComplexity = getHigherComplexity(
       formData.firstDataComplexity,
       formData.secondDataComplexity
     );
@@ -164,32 +164,31 @@ const FormComponent = () => {
       },
     };
   
-    let UFP= 0;
+    let UFP = 0;
   
     for (const type in counts) {
       if (counts.hasOwnProperty(type)) {
         // Use type assertion to let TypeScript know it's a valid property
-        UFP += counts[type as keyof typeof counts] * complexityWeights[derivedComplexity][type as keyof typeof complexityWeights];
+        UFP +=
+          (counts[type as keyof typeof counts] as number) *
+          (complexityWeights[derivedComplexity][type as keyof typeof complexityWeights] as number);
       }
     }
-    
-
-
-    const totalFunctionPoint = UFP * CAF
-    setTotalFunctionPoint(totalFunctionPoint)
+  
+    const totalFunctionPoint = UFP * CAF;
+    setTotalFunctionPoint(totalFunctionPoint);
     console.log("totalFunctionPoint" + totalFunctionPoint);
-    
-    
-
+  
     const newTotalCost = (totalFunctionPoint * costPerFP).toLocaleString('en-US', {
       style: 'currency',
       currency: 'GBP',
       minimumFractionDigits: 2,
     });
     setTotalCost(newTotalCost);
- 
+  
     return newTotalCost;
   };
+  
   
 
   const handleNextStep = () => {
