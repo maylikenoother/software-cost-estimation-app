@@ -53,7 +53,7 @@ let initialFormData: InitialFormData = {
   complexFiles: 0,
   internalProcessing: 0,
   reusableCode: 0,
-  conversion: '',
+  conversion: 0,
   multipleInstallation: 0,
   easyUse: 0,
   firstScreenName: '',
