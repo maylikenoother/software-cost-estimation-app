@@ -8,7 +8,7 @@ import EstimateScreen from '../components/EstimateScreen'
 import Receipt from '../components/Receipt'
 import User from '../../../models/user.ts'
 
-interface InitialFormData {
+export interface InitialFormData {
 
   softwareType: string;
   noIntegrationRequired: number;
