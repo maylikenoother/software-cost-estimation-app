@@ -169,12 +169,12 @@ const FormComponent = () => {
     for (const type in counts) {
       if (
         counts.hasOwnProperty(type) &&
-        complexityWeights[derivedComplexity].hasOwnProperty(type)
+        complexityWeights[derivedComplexity].hasOwnProperty(type as keyof typeof complexityWeights[typeof derivedComplexity])
       ) {
         // Use type assertion to let TypeScript know it's a valid property
         UFP +=
-          (counts[type as keyof typeof counts] as number) *
-          (complexityWeights[derivedComplexity][type as keyof typeof complexityWeights] as number);
+        (counts[type as keyof typeof counts] as number) *
+        (complexityWeights[derivedComplexity][type as keyof typeof complexityWeights[typeof derivedComplexity]] as number);
       }
     }
   
