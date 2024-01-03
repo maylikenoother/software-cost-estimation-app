@@ -8,7 +8,8 @@ import EstimateScreen from '../components/EstimateScreen'
 import Receipt from '../components/Receipt'
 import User from '../../../models/user.ts'
 
-interface FormData {
+interface InitialFormData {
+
   softwareType: string;
   noIntegrationRequired: number;
   screens: number;
@@ -37,7 +38,7 @@ interface FormData {
   appDescription: string;
 }
 
-const initialFormData = {
+let initialFormData: InitialFormData = {
   softwareType: '',
   noIntegrationRequired: '',
   screens: '',

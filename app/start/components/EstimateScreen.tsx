@@ -146,20 +146,5 @@ const EstimateScreen = ({
   );
 };
 
-EstimateScreen.propTypes = {
-  formData: PropTypes.shape({
-    userName: PropTypes.string.isRequired,
-    userEmail: PropTypes.string.isRequired,
-    appDescription: PropTypes.string.isRequired,
-  }).isRequired,
-  totalCost: PropTypes.number.isRequired,
-  costPerFP: PropTypes.number.isRequired,
-  handleChangeInput: PropTypes.func.isRequired,
-  handlePrevStep: PropTypes.func.isRequired,
-  handleNextStep: PropTypes.func.isRequired,
-  handleSubmitFormData: PropTypes.func.isRequired,
-  handleCostPerFPChange: PropTypes.func.isRequired,
-  saveData: PropTypes.func.isRequired,
-};
 
 export default EstimateScreen;
