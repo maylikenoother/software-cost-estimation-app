@@ -127,7 +127,7 @@ const FormComponent = () => {
   const calculateFP = (formData: InitialFormData) => {
     const CAF = calculateCAF(formData); 
     
-    const derivedComplexity = getHigherComplexity(
+    const derivedComplexity: 'low' | 'average' | 'high' = getHigherComplexity(
       formData.firstDataComplexity,
       formData.secondDataComplexity
     );
