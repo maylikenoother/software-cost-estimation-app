@@ -76,7 +76,7 @@ const FormComponent = () => {
   const [totalFunctionPoint, setTotalFunctionPoint] = useState(0);
   const [costPerFP, setCostPerFP] = useState(1);
 
-  const getHigherComplexity = (firstDataComplexity, secondDataComplexity) => {
+  const getHigherComplexity = (firstDataComplexity: string , secondDataComplexity: string) => {
     const complexityOrder = ['low', 'average', 'high'];
 
     if (firstDataComplexity === 'high' || secondDataComplexity === 'high') {
