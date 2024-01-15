@@ -7,7 +7,6 @@ type InitialFormData = {
   noIntegrationRequired: number;
   screens: number;
   backupRecovery: number;
-  backupRecovery: number;
   dataCommunication: number;
   distributedProcessing: number;
   performance: number;
