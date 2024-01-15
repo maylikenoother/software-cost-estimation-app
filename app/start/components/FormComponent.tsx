@@ -77,9 +77,12 @@ const FormComponent = () => {
   const [totalFunctionPoint, setTotalFunctionPoint] = useState(0);
   const [costPerFP, setCostPerFP] = useState(1);
 
-  const getHigherComplexity = (firstDataComplexity: string, secondDataComplexity: string) => {
-    const complexityOrder = ['low', 'average', 'high'] as const;
+  const complexityOrder = ['low', 'average', 'high'] as const;
 
+  const getHigherComplexity = (
+    firstDataComplexity: typeof complexityOrder[number],
+    secondDataComplexity: typeof complexityOrder[number]
+    ) => {
     if (firstDataComplexity === 'high' || secondDataComplexity === 'high') {
       return 'high';
     } else {
@@ -89,6 +92,7 @@ const FormComponent = () => {
       return firstDataComplexityValue > secondDataComplexityValue ? firstDataComplexity : secondDataComplexity;
     }
   };
+
 
 
   const calculateCAF = (formData: InitialFormData): number => {
