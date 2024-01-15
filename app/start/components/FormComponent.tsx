@@ -129,9 +129,9 @@ const FormComponent = () => {
     return CAF;
   };
 
-    const calculateFP = (formData: InitialFormData): string => {
+  const calculateFP = (formData: InitialFormData): string => {
     const CAF = calculateCAF(formData);
-
+  
     const derivedComplexity = getHigherComplexity(
       formData.firstDataComplexity,
       formData.secondDataComplexity
@@ -170,15 +170,15 @@ const FormComponent = () => {
     };
   
     let UFP = 0;
-
+  
     for (const type in counts) {
-     if (counts.hasOwnProperty(type)) {
-      UFP +=
-      Object.values(complexityWeights[derivedComplexity])
-        .filter((value) => typeof value === 'number')
-        .reduce((sum, value) => sum + value * (counts[type] as number), 0);
+      if (counts.hasOwnProperty(type)) {
+        UFP +=
+          Object.values(complexityWeights[derivedComplexity])
+            .filter((value) => typeof value === 'number')
+            .reduce((sum, value) => sum + value * (counts[type] as number), 0);
+      }
     }
-   }
   
     const totalFunctionPoint = UFP * CAF;
     setTotalFunctionPoint(totalFunctionPoint);
@@ -189,7 +189,10 @@ const FormComponent = () => {
       currency: 'GBP',
       minimumFractionDigits: 2,
     });
-    setTotalCost(newTotalCost);
+  
+    // Update the totalCost state with the new value
+    setTotalCost(parseFloat(newTotalCost.replace(/[^0-9.-]+/g, '')));
+    console.log("newTotalCost:" + newTotalCost);
   
     return newTotalCost;
   };
