@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes , { Validator }  from 'prop-types';
 
-import { InitialFormData } from './FormComponent'
+import { InitialFormData }  from './FormComponent'
 
 interface EstimateScreenProps {
   formData: InitialFormData;
   handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChangeTextArea: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handlePrevStep: () => void;
   handleNextStep: () => void;
+  handleChangeTextArea: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   totalCost: string;
   costPerFP: number;
   handleCostPerFPChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
