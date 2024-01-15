@@ -188,43 +188,6 @@ const EstimateScreen: React.FC<EstimateScreenProps> = ({
   );
 };
 
-EstimateScreen.propTypes = {
-  formData: PropTypes.shape<InitialFormData>({
-    softwareType: PropTypes.string.isRequired,
-    noIntegrationRequired: PropTypes.number.isRequired,
-    screens:  PropTypes.number.isRequired,
-    backupRecovery:  PropTypes.number.isRequired,
-    dataCommunication: PropTypes.number.isRequired,
-    distributedProcessing:  PropTypes.number.isRequired,
-    performance:  PropTypes.number.isRequired,
-    operationalEnvironment:  PropTypes.number.isRequired,
-    dataEntry:  PropTypes.number.isRequired,
-    multipleScreenEntry:  PropTypes.number.isRequired,
-    masterFiles:  PropTypes.number.isRequired,
-    complexFiles:  PropTypes.number.isRequired,
-    internalProcessing:  PropTypes.number.isRequired,
-    reusableCode: PropTypes.number.isRequired,
-    conversion:  PropTypes.number.isRequired,
-    multipleInstallation:  PropTypes.number.isRequired,
-    easyUse:  PropTypes.number.isRequired,
-    firstScreenName: PropTypes.string.isRequired,
-    firstInputFields: PropTypes.number.isRequired,
-    firstDataComplexity: PropTypes.oneOf(['high', 'average', 'low']).isRequired,
-    secondScreenName: PropTypes.string.isRequired,
-    secondInputFields:  PropTypes.number.isRequired,
-    secondDataComplexity: PropTypes.oneOf(['high', 'average', 'low']).isRequired,
-    userName: PropTypes.string.isRequired,
-    userEmail: PropTypes.string.isRequired,
-    appDescription: PropTypes.string.isRequired,
-  }).isRequired,
-  handleChangeInput: PropTypes.func.isRequired,
-  handlePrevStep: PropTypes.func.isRequired,
-  handleNextStep: PropTypes.func.isRequired,
-  handleChangeTextArea: PropTypes.func.isRequired,
-  totalCost: PropTypes.string.isRequired,
-  costPerFP: PropTypes.number.isRequired,
-  handleCostPerFPChange: PropTypes.func.isRequired,
-  saveData: PropTypes.func.isRequired,
-};
+
 
 export default EstimateScreen;
