@@ -45,8 +45,7 @@ const FirstScreenForm: React.FC<FirstScreenFormProps> = ({
   const isFormValid = () => {
     return (
       formData.firstScreenName !== '' &&
-      formData.firstInputFields !== 0 &&
-      formData.firstDataComplexity !== 'none'
+      formData.firstInputFields !== 0
     );
   };
 

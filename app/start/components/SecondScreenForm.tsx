@@ -47,9 +47,8 @@ const SecondScreenForm: React.FC<SecondScreenFormProps> = ({
 }) => {
   const isFormValid = () => {
     return (
-      formData.secondScreenName !== '' &&
-      formData.secondInputFields !== '' &&
-      formData.secondDataComplexity !== 'none'
+      formData.firstScreenName !== '' &&
+      formData.firstInputFields !== 0
     );
   };
 
