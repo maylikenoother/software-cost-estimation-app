@@ -1,11 +1,36 @@
 import React, { ChangeEvent } from 'react';
 
+type InitialFormData = {
+  softwareType: string;
+  noIntegrationRequired: number;
+  screens: number;
+  backupRecovery: number;
+  dataCommunication: number;
+  distributedProcessing: number;
+  performance: number;
+  operationalEnvironment: number;
+  dataEntry: number;
+  multipleScreenEntry: number;
+  masterFiles: number;
+  complexFiles: number;
+  internalProcessing: number;
+  reusableCode: number;
+  conversion: number;
+  multipleInstallation: number;
+  easyUse: number;
+  firstScreenName: string;
+  firstInputFields: number;
+  firstDataComplexity: "high" | "average" | "low";
+  secondScreenName: string;
+  secondInputFields: number;
+  secondDataComplexity: "high" | "average" | "low";
+  userName: string;
+  userEmail: string;
+  appDescription: string;
+};
+
 interface QuestionsProps {
-  formData: {
-    softwareType: string;
-    noIntegrationRequired: number;
-    screens: number;
-  };
+  formData: InitialFormData
   handleChangeInput: (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   handleNextStep: () => void;
 }
