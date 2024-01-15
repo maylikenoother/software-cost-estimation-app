@@ -224,7 +224,7 @@ const FormComponent = () => {
     }));
   };
 
-  const handleChangeTextArea = (event: React.ChangeEvent<HTMLInputElement>)  => {
+  const handleChangeTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>)  => {
     const fieldName = event.target.name;
     const fieldValue = event.target.value;
 
