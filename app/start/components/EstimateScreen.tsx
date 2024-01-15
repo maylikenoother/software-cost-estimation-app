@@ -26,9 +26,9 @@ type InitialFormData = {
   secondScreenName: string;
   secondInputFields: number;
   secondDataComplexity: "high" | "average" | "low";
-     userName: string;
-     userEmail: string;
-     appDescription: string;
+  userName: string;
+  userEmail: string;
+  appDescription: string;
 };
 
 interface EstimateScreenProps {

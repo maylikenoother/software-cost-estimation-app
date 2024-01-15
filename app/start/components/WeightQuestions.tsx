@@ -1,22 +1,37 @@
 import React, { ChangeEvent } from 'react';
 
+// Define the InitialFormData type
+type InitialFormData = {
+  softwareType: string;
+  noIntegrationRequired: number;
+  screens: number;
+  backupRecovery: number;
+  dataCommunication: number;
+  distributedProcessing: number;
+  performance: number;
+  operationalEnvironment: number;
+  dataEntry: number;
+  multipleScreenEntry: number;
+  masterFiles: number;
+  complexFiles: number;
+  internalProcessing: number;
+  reusableCode: number;
+  conversion: number;
+  multipleInstallation: number;
+  easyUse: number;
+  firstScreenName: string;
+  firstInputFields: number;
+  firstDataComplexity: "high" | "average" | "low";
+  secondScreenName: string;
+  secondInputFields: number;
+  secondDataComplexity: "high" | "average" | "low";
+  userName: string;
+  userEmail: string;
+  appDescription: string;
+};
+
 interface WeightQuestionsProps {
-    formData: {
-      backupRecovery: string;
-      dataCommunication: string;
-      distributedProcessing: string;
-      performance: string;
-      operationalEnvironment: string;
-      dataEntry: string;
-      multipleScreenEntry: string;
-      masterFiles: string;
-      complexFiles: string;
-      internalProcessing: string;
-      reusableCode: string;
-      conversion: string;
-      multipleInstallation: string;
-      easyUse: string;
-    };
+    formData: InitialFormData;
     handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handlePrevStep: () => void;
     handleNextStep: () => void;
