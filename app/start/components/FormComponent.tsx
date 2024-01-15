@@ -11,32 +11,32 @@ import User from '../../../models/user'
 export interface InitialFormData {
   [key: string]: string | number;
 
-  softwareType: string;
-  noIntegrationRequired: number;
-  screens: number;
-  backupRecovery: number;
-  dataCommunication: number;
-  distributedProcessing: number;
-  performance: number;
-  operationalEnvironment: number;
-  dataEntry: number;
-  multipleScreenEntry: number;
-  masterFiles: number;
-  complexFiles: number;
-  internalProcessing: number;
-  reusableCode: number;
-  conversion: number;
-  multipleInstallation: number;
-  easyUse: number;
-  firstScreenName: string;
-  firstInputFields: number;
-  firstDataComplexity: string;
-  secondScreenName: string;
-  secondInputFields: number;
-  secondDataComplexity: string;
-  userName: string;
-  userEmail: string;
-  appDescription: string;
+    readonly softwareType: string;
+    readonly noIntegrationRequired: number;
+    readonly screens: number;
+    readonly backupRecovery: number;
+    readonly dataCommunication: number;
+    readonly distributedProcessing: number;
+    readonly performance: number;
+    readonly operationalEnvironment: number;
+    readonly dataEntry: number;
+    readonly multipleScreenEntry: number;
+    readonly masterFiles: number;
+    readonly complexFiles: number;
+    readonly internalProcessing: number;
+    readonly reusableCode: number;
+    readonly conversion: number;
+    readonly multipleInstallation: number;
+    readonly easyUse: number;
+    readonly firstScreenName: string;
+    readonly firstInputFields: number;
+    readonly firstDataComplexity: string;
+    readonly secondScreenName: string;
+    readonly secondInputFields: number;
+    readonly secondDataComplexity: string;
+    readonly userName: string;
+    readonly userEmail: string;
+    readonly appDescription: string;
 }
 
 let initialFormData: InitialFormData = {
@@ -68,17 +68,17 @@ let initialFormData: InitialFormData = {
   appDescription:''
 };
 
-const stepArray = ['Questions', 'WeightQuestions', 'FirstScreenForm', 'SecondScreenForm', 'EstimateScreen', 'Receipt'];
+const stepArray = ['Questions', 'WeightQuestions', 'FirstScreenForm', 'SecondScreenForm', 'EstimateScreen', 'Receipt'] as const;
 
 const FormComponent = () => {
-  const [step, setStep] = useState('Questions');
-  const [formData, setFormData] = useState(initialFormData);
-  const [totalCost, setTotalCost] = useState(0);
+  const [step, setStep] = useState<typeof stepArray[number]>('Questions');
+  const [formData, setFormData] = useState<InitialFormData>(initialFormData);
+  const [totalCost, setTotalCost] = useState('0');
   const [totalFunctionPoint, setTotalFunctionPoint] = useState(0);
   const [costPerFP, setCostPerFP] = useState(1);
 
-  const getHigherComplexity = (firstDataComplexity: string , secondDataComplexity: string) => {
-    const complexityOrder = ['low', 'average', 'high'];
+  const getHigherComplexity = (firstDataComplexity: string, secondDataComplexity: string) => {
+    const complexityOrder = ['low', 'average', 'high'] as const;
 
     if (firstDataComplexity === 'high' || secondDataComplexity === 'high') {
       return 'high';
@@ -90,9 +90,10 @@ const FormComponent = () => {
     }
   };
 
-  const calculateCAF = (formData: InitialFormData) => {
+
+  const calculateCAF = (formData: InitialFormData): number => {
     // Define your questions and their respective fields in formData
-    const questionFields = [
+    const questionFields: (keyof InitialFormData)[] = [
       'backupRecovery',
       'dataCommunication',
       'distributedProcessing',
@@ -124,9 +125,9 @@ const FormComponent = () => {
     return CAF;
   };
 
-  const calculateFP = (formData: InitialFormData) => {
+    const calculateFP = (formData: InitialFormData): string => {
     const CAF = calculateCAF(formData);
-  
+
     const derivedComplexity = getHigherComplexity(
       formData.firstDataComplexity,
       formData.secondDataComplexity
@@ -165,19 +166,15 @@ const FormComponent = () => {
     };
   
     let UFP = 0;
-  
+
     for (const type in counts) {
-      if (
-        counts.hasOwnProperty(type) &&
-        complexityWeights[derivedComplexity][type as keyof typeof complexityWeights[typeof derivedComplexity]] !== undefined
-      ) {
-        // Use type assertion to let TypeScript know it's a valid property
-        UFP +=
-          (counts[type as keyof typeof counts] as number) *
-          (complexityWeights[derivedComplexity][type as keyof typeof complexityWeights[typeof derivedComplexity]] as number);
-      }
-      
+     if (counts.hasOwnProperty(type)) {
+      UFP +=
+      Object.values(complexityWeights[derivedComplexity])
+        .filter((value) => typeof value === 'number')
+        .reduce((sum, value) => sum + value * (counts[type] as number), 0);
     }
+   }
   
     const totalFunctionPoint = UFP * CAF;
     setTotalFunctionPoint(totalFunctionPoint);
