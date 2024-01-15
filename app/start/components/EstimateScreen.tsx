@@ -1,7 +1,36 @@
 import React, { useState } from 'react';
 import PropTypes , { Validator }  from 'prop-types';
 
-import { InitialFormData }  from './FormComponent'
+// Define the InitialFormData type
+type InitialFormData = {
+  softwareType: string;
+  noIntegrationRequired: number;
+  screens: number;
+  backupRecovery: number;
+  backupRecovery: number;
+  dataCommunication: number;
+  distributedProcessing: number;
+  performance: number;
+  operationalEnvironment: number;
+  dataEntry: number;
+  multipleScreenEntry: number;
+  masterFiles: number;
+  complexFiles: number;
+  internalProcessing: number;
+  reusableCode: number;
+  conversion: number;
+  multipleInstallation: number;
+  easyUse: number;
+  firstScreenName: string;
+  firstInputFields: number;
+  firstDataComplexity: "high" | "average" | "low";
+  secondScreenName: string;
+  secondInputFields: number;
+  secondDataComplexity: "high" | "average" | "low";
+     userName: string;
+     userEmail: string;
+     appDescription: string;
+};
 
 interface EstimateScreenProps {
   formData: InitialFormData;
@@ -161,7 +190,7 @@ const EstimateScreen: React.FC<EstimateScreenProps> = ({
 };
 
 EstimateScreen.propTypes = {
-  formData: PropTypes.shape({
+  formData: PropTypes.shape<InitialFormData>({
     softwareType: PropTypes.string.isRequired,
     noIntegrationRequired: PropTypes.number.isRequired,
     screens:  PropTypes.number.isRequired,
