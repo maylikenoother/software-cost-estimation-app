@@ -59,10 +59,10 @@ let initialFormData: InitialFormData = {
   easyUse: 0,
   firstScreenName: '',
   firstInputFields: 0,
-  firstDataComplexity: '',
+  firstDataComplexity: "high" | "average" | "low",
   secondScreenName: '',
   secondInputFields: 0,
-  secondDataComplexity: '',
+  secondDataComplexity:"high" | "average" | "low",
   userName: '',
   userEmail: '',
   appDescription:''
