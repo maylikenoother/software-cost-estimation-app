@@ -73,7 +73,7 @@ const stepArray = ['Questions', 'WeightQuestions', 'FirstScreenForm', 'SecondScr
 const FormComponent = () => {
   const [step, setStep] = useState<typeof stepArray[number]>('Questions');
   const [formData, setFormData] = useState<InitialFormData>(initialFormData);
-  const [totalCost, setTotalCost] = useState('0');
+  const [totalCost, setTotalCost] = useState(0);
   const [totalFunctionPoint, setTotalFunctionPoint] = useState(0);
   const [costPerFP, setCostPerFP] = useState(1);
 
