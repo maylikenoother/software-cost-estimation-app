@@ -214,7 +214,7 @@ const FormComponent = () => {
     else if (step === 'WeightQuestions') setStep('Questions');
   };
 
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const fieldName = event.target.name;
     const fieldValue = event.target.value;
   
