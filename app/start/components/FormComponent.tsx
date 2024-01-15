@@ -137,7 +137,7 @@ const FormComponent = () => {
       formData.secondDataComplexity
     );
   
-    const counts = {
+    const counts : { [key: string]: number } = {
       EIs: formData.firstInputFields + formData.secondInputFields,
       EOs: formData.screens,
       EQs: formData.screens,
