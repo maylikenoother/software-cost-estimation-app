@@ -224,7 +224,7 @@ const FormComponent = () => {
     }));
   };
 
-  const handleChangeTextArea = (event) => {
+  const handleChangeTextArea = (event: React.ChangeEvent<HTMLInputElement>)  => {
     const fieldName = event.target.name;
     const fieldValue = event.target.value;
 
@@ -268,7 +268,7 @@ const FormComponent = () => {
   };
   
 
-  const handleCostPerFPChange = (event) => {
+  const handleCostPerFPChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
     const newCostPerFP = parseFloat(event.target.value);
     setCostPerFP(newCostPerFP);
     console.log("newCostPerFP: " + newCostPerFP);
