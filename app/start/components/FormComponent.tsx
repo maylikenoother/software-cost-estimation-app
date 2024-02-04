@@ -124,14 +124,12 @@ const FormComponent = () => {
     });
 
     // Calculate CAF using the formula
-    const CAF = 0.65 + 0.01 * sumFi;
+    const CAF = 0.65 + 0.01 * sumFi; 
 
     return CAF;
   };
-
-  const calculateFP = (formData: InitialFormData): string => {
-    const CAF = calculateCAF(formData);
   
+  const calculateUFP = (formData:InitialFormData):number => {
     const derivedComplexity = getHigherComplexity(
       formData.firstDataComplexity,
       formData.secondDataComplexity
@@ -179,23 +177,26 @@ const FormComponent = () => {
             .reduce((sum, value) => sum + value * (counts[type] as number), 0);
       }
     }
+    return UFP;
+  }
+
+  const calculateFP = (formData: InitialFormData): string => {
+    const CAF = calculateCAF(formData);
+    const UFP = calculateUFP(formData);
   
     const totalFunctionPoint = UFP * CAF;
     setTotalFunctionPoint(totalFunctionPoint);
     console.log("totalFunctionPoint" + totalFunctionPoint);
   
+    const costPerFP = 1; // Define the cost per Function Point here
     const newTotalCost = (totalFunctionPoint * costPerFP).toLocaleString('en-US', {
       style: 'currency',
       currency: 'GBP',
       minimumFractionDigits: 2,
     });
   
-    // Update the totalCost state with the new value
-    setTotalCost(parseFloat(newTotalCost.replace(/[^0-9.-]+/g, '')));
-    console.log("newTotalCost:" + newTotalCost);
-  
     return newTotalCost;
-  };
+  }
   
   
   
@@ -211,7 +212,7 @@ const FormComponent = () => {
 
   const handlePrevStep = () => {
     if (step === 'Receipt') setStep('EstimateScreen');
-    if (step === 'EstimateScreen') setStep('SecondScreenForm');
+    if (step === 'EstimateScreen') setStep('SecondScreenForm'); 
     else if (step === 'SecondScreenForm') setStep('FirstScreenForm');
     else if (step === 'FirstScreenForm') setStep('WeightQuestions');
     else if (step === 'WeightQuestions') setStep('Questions');
@@ -239,8 +240,9 @@ const FormComponent = () => {
   
   const handleSubmitFormData = () => {
     const newTotalCost = calculateFP(formData);
-    setTotalCost(newTotalCost);
     
+    // Update the totalCost state with the new value
+    setTotalCost(parseFloat(newTotalCost.replace(/[^0-9.-]+/g, '')));
   };
  
 
