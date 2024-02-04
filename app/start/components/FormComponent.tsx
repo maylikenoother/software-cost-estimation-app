@@ -191,7 +191,7 @@ const FormComponent = () => {
     return totalFunctionPoint; // Return the calculated FP
   };
   
-  const calculateTotalCost = (totalFunctionPoint: number, costPerFP: number): string => {
+  const calculateTotalCost = (totalFunctionPoint: number, costPerFP: number): number => {
     const totalCost = totalFunctionPoint * costPerFP;
     return totalCost.toFixed(2); // Formats the total cost as a string with GBP symbol
   };
@@ -239,9 +239,10 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
     const newTotalCost = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
     const newTotalCostNumber = parseFloat(newTotalCost.replace(/[^0-9.-]+/g, ''));
     
-    setTotalCost(newTotalCostNumber); // Assuming setTotalCost expects a number, you might need to adjust if it should store a string
+    setTotalCost(newTotalCostNumber); // Parse and set the newTotalCost as a number
     console.log("New Total Cost:", newTotalCost);
   };
+  
   
 
   const saveData = async () => {
