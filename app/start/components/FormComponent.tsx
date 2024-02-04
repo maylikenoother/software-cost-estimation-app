@@ -119,7 +119,7 @@ const FormComponent = () => {
 
     // Loop through the questions and add up their values
     questionFields.forEach((field) => {
-      const value = parseInt(formData[field].toString(), 10); // Ensure formData[field] is a string
+      const value = parseInt(formData[field], 10); // Ensure formData[field] is a string
       sumFi += value;
     });
 
