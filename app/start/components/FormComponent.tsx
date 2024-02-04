@@ -180,53 +180,47 @@ const FormComponent = () => {
     return UFP;
   }
 
-  const calculateFP = (formData: InitialFormData): string => {
+  
+  const calculateFP = (formData: InitialFormData): number => {
     const CAF = calculateCAF(formData);
     const UFP = calculateUFP(formData);
   
     const totalFunctionPoint = UFP * CAF;
-    setTotalFunctionPoint(totalFunctionPoint);
-    console.log("totalFunctionPoint" + totalFunctionPoint);
+    console.log("Total Function Points: " + totalFunctionPoint);
   
-    const costPerFP = 1; // Define the cost per Function Point here
-    const newTotalCost = (totalFunctionPoint * costPerFP).toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'GBP',
-      minimumFractionDigits: 2,
-    });
+    return totalFunctionPoint; // Return the calculated FP
+  };
   
-    return newTotalCost;
-  }
-  
+  const calculateTotalCost = (totalFunctionPoint: number, costPerFP: number): number => {
+    const totalCost = totalFunctionPoint * costPerFP;
+    return totalCost.toFixed(2); // Formats the total cost as a string with GBP symbol
+  };
   
   
   
 
-  const handleNextStep = () => {
-    if (step === 'Questions') setStep('WeightQuestions');
-    else if (step === 'WeightQuestions') setStep('FirstScreenForm');
-    else if (step === 'FirstScreenForm') setStep('SecondScreenForm');
-    else if (step === 'SecondScreenForm') setStep('EstimateScreen');
-    else if (step === 'EstimateScreen') setStep('Receipt')
+  const handleNextStep = (): void => {
+    const currentStepIndex = stepArray.indexOf(step);
+    const nextStep = stepArray[currentStepIndex + 1];
+    if (nextStep) setStep(nextStep);
   };
 
-  const handlePrevStep = () => {
-    if (step === 'Receipt') setStep('EstimateScreen');
-    if (step === 'EstimateScreen') setStep('SecondScreenForm'); 
-    else if (step === 'SecondScreenForm') setStep('FirstScreenForm');
-    else if (step === 'FirstScreenForm') setStep('WeightQuestions');
-    else if (step === 'WeightQuestions') setStep('Questions');
+  const handlePrevStep = (): void => {
+    const currentStepIndex = stepArray.indexOf(step);
+    const prevStep = stepArray[currentStepIndex - 1];
+    if (prevStep) setStep(prevStep);
   };
 
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const fieldName = event.target.name;
-    const fieldValue = event.target.value;
+ // Correct typing for an input change event handler
+const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const { name, value } = event.target;
   
-    setFormData((prevData) => ({
-      ...prevData,
-      [fieldName]: fieldValue,
-    }));
-  };
+  setFormData((prevData) => ({
+    ...prevData,
+    [name]: value, // Ensure this assignment is type-safe
+  }));
+};
+
 
   const handleChangeTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>)  => {
     const fieldName = event.target.name;
@@ -239,17 +233,16 @@ const FormComponent = () => {
   };
   
   const handleSubmitFormData = () => {
-    const newTotalCost = calculateFP(formData);
+    const totalFunctionPoint = calculateFP(formData); // Calculate FP
+    setTotalFunctionPoint(totalFunctionPoint); // Update state if needed
     
-    // Parse newTotalCost to a number before setting the state
+    const newTotalCost = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
     const newTotalCostNumber = parseFloat(newTotalCost.replace(/[^0-9.-]+/g, ''));
     
-    // Update the totalCost state with the new value
-    setTotalCost(newTotalCostNumber);
-    console.log("newTotalCost:" + newTotalCost);
+    setTotalCost(newTotalCostNumber); // Assuming setTotalCost expects a number, you might need to adjust if it should store a string
+    console.log("New Total Cost:", newTotalCost);
   };
   
- 
 
   const saveData = async () => {
   

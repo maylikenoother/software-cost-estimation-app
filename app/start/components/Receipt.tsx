@@ -38,6 +38,11 @@ interface ReceiptProps {
 }
 
 const Receipt: React.FC<ReceiptProps> = ({ formData, totalFunctionPoint, costPerFP, totalCost, handlePrevStep }) => {
+      const formattedTotalCost = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+      }).format(totalCost);
+
   return (
     <div data-testid="Receipt" className="bg-gray-100 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -69,7 +74,7 @@ const Receipt: React.FC<ReceiptProps> = ({ formData, totalFunctionPoint, costPer
               </tr>
               <tr className="bg-gray-200">
                 <td className="py-2 text-teal-600 font-semibold pr-4 w-9/10 whitespace-nowrap">Total Cost:</td>
-                <td className="py-2 text-teal-600 whitespace-nowrap pr-4">{totalCost}</td>
+                <td className="py-2 text-teal-600 whitespace-nowrap pr-4">{formattedTotalCost}</td>
               </tr>
             </tbody>
           </table>
