@@ -191,7 +191,7 @@ const FormComponent = () => {
     return totalFunctionPoint; // Return the calculated FP
   };
   
-  const calculateTotalCost = (totalFunctionPoint: number, costPerFP: number): number => {
+  const calculateTotalCost = (totalFunctionPoint: number, costPerFP: number): string => {
     const totalCost = totalFunctionPoint * costPerFP;
     return totalCost.toFixed(2); // Formats the total cost as a string with GBP symbol
   };
