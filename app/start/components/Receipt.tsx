@@ -33,7 +33,7 @@ interface ReceiptProps {
   formData: InitialFormData
   totalFunctionPoint: number;
   costPerFP: number;
-  totalCost: number;
+  totalCost: string;
   handlePrevStep: () => void;
 }
 
