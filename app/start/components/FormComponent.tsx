@@ -241,9 +241,14 @@ const FormComponent = () => {
   const handleSubmitFormData = () => {
     const newTotalCost = calculateFP(formData);
     
+    // Parse newTotalCost to a number before setting the state
+    const newTotalCostNumber = parseFloat(newTotalCost.replace(/[^0-9.-]+/g, ''));
+    
     // Update the totalCost state with the new value
-    setTotalCost(parseFloat(newTotalCost.replace(/[^0-9.-]+/g, '')));
+    setTotalCost(newTotalCostNumber);
+    console.log("newTotalCost:" + newTotalCost);
   };
+  
  
 
   const saveData = async () => {
