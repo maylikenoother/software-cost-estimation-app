@@ -1,7 +1,6 @@
 // Import necessary modules and configurations
 import connect from '../../utility/mongo';
 import User, { IUser } from '../../models/user'; // Import IUser
-import dbConnect from '../../../utils/dbConnect';
 import dotenv from 'dotenv';
 
 dotenv.config();
