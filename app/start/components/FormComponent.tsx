@@ -234,10 +234,10 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
   };
   
   const handleSubmitFormData = () => {
-    const totalFunctionPoint = calculateFP(formData); // Calculate FP
+    const totalFunctionPoint: number  = calculateFP(formData); // Calculate FP
     setTotalFunctionPoint(totalFunctionPoint); // Update state if needed
     
-    const newTotalCost = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
+    const newTotalCost: number = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
    
     
     setTotalCost(newTotalCost); // set the newTotalCost as a number
