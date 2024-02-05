@@ -1,10 +1,9 @@
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
-dotenv.config()
-
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const connect = async () => {
-  const dbURI = process.env.MONGODB_URI; 
+  const dbURI = process.env.MONGODB_URI as string; // Assert the type as string
 
   const options = {
     useNewUrlParser: true,
@@ -16,8 +15,6 @@ const connect = async () => {
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
-
-
     throw error;
   }
 };
