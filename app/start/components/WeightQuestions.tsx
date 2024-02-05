@@ -44,23 +44,24 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
     handleNextStep,
   }) => {
     const isFormValid = () => {
-      return (
-        formData.backupRecovery !== '' &&
-        formData.dataCommunication !== '' &&
-        formData.distributedProcessing !== '' &&
-        formData.performance !== '' &&
-        formData.operationalEnvironment !== '' &&
-        formData.dataEntry !== '' &&
-        formData.multipleScreenEntry !== '' &&
-        formData.masterFiles !== '' &&
-        formData.complexFiles !== '' &&
-        formData.internalProcessing !== '' &&
-        formData.reusableCode !== '' &&
-        formData.conversion !== '' &&
-        formData.multipleInstallation !== '' &&
-        formData.easyUse !== ''
-      );
-    };
+        return (
+          formData.backupRecovery !== 0 &&
+          formData.dataCommunication !== 0 &&
+          formData.distributedProcessing !== 0 &&
+          formData.performance !== 0 &&
+          formData.operationalEnvironment !== 0 &&
+          formData.dataEntry !== 0 &&
+          formData.multipleScreenEntry !== 0 &&
+          formData.masterFiles !== 0 &&
+          formData.complexFiles !== 0 &&
+          formData.internalProcessing !== 0 &&
+          formData.reusableCode !== 0 &&
+          formData.conversion !== 0 &&
+          formData.multipleInstallation !== 0 &&
+          formData.easyUse !== 0
+        );
+      };
+      
 
   return (
     <div data-testid="weight"  className="bg-lime-950 min-h-screen flex items-center justify-center">
