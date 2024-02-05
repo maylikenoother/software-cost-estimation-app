@@ -354,6 +354,7 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
         <Receipt
           formData={formData}
           totalCost={totalCost}
+          handlePrevStep={handlePrevStep}
           costPerFP={costPerFP}
           totalFunctionPoint={totalFunctionPoint}
         />
