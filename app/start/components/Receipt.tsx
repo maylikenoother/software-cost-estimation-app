@@ -38,7 +38,7 @@ interface ReceiptProps {
 }
 
 const Receipt: React.FC<ReceiptProps> = ({ formData, totalFunctionPoint, costPerFP, totalCost, handlePrevStep }) => {
-      const formattedTotalCost: number = new Intl.NumberFormat('en-GB', {
+      const formattedTotalCost  = new Intl.NumberFormat('en-GB', {
         style: 'currency',
         currency: 'GBP',
       }).format(parseFloat(totalCost).toFixed(2));
