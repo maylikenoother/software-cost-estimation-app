@@ -193,8 +193,9 @@ const FormComponent = () => {
   
   const calculateTotalCost = (totalFunctionPoint: number, costPerFP: number): number => {
     const totalCost = totalFunctionPoint * costPerFP;
-    return parseFloat(totalCost.toFixed(2)); // Convert the formatted string to a number
+    return totalCost; // Return the calculated total cost as a number
   };
+  
   
   
   
@@ -237,9 +238,9 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
     setTotalFunctionPoint(totalFunctionPoint); // Update state if needed
     
     const newTotalCost = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
-    const newTotalCostNumber = parseFloat(newTotalCost.replace(/[^0-9.-]+/g, ''));
+    // const newTotalCostNumber = parseFloat(newTotalCost.replace(/[^0-9.-]+/g, ''));
     
-    setTotalCost(newTotalCostNumber); // Parse and set the newTotalCost as a number
+    setTotalCost(newTotalCost); // Parse and set the newTotalCost as a number
     console.log("New Total Cost:", newTotalCost);
   };
   
