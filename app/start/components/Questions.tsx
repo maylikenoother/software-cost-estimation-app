@@ -37,7 +37,8 @@ interface QuestionsProps {
 
 const Questions: React.FC<QuestionsProps> = ({ formData, handleChangeInput, handleNextStep }) => {
   const isFormValid = () => {
-    const requiredFields = ['softwareType', 'noIntegrationRequired', 'screens'];
+    const requiredFields: (keyof InitialFormData)[] = ['softwareType', 'noIntegrationRequired', 'screens'];
+
 
     return requiredFields.every((field) => formData[field] !== '' && formData[field] !== null && formData[field] !== undefined);
   };
