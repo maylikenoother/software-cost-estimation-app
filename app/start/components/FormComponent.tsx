@@ -9,7 +9,7 @@ import Receipt from '../components/Receipt'
 import User from '../../../models/user'
 
 export interface InitialFormData {
-  [key: string | number];
+  [key: string]: any;
 
     readonly softwareType: string;
     readonly noIntegrationRequired: number;
@@ -119,7 +119,7 @@ const FormComponent = () => {
 
     // Loop through the questions and add up their values
     questionFields.forEach((field) => {
-      const value = parseInt(formData[field].toString(), 10); // Ensure formData[field] is a string
+      const value = parseInt(formData[field], 10); // Ensure formData[field] is a string
       sumFi += value;
     });
 
@@ -240,7 +240,7 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
     const newTotalCost = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
    
     
-    setTotalCost(newTotalCost); // Parse and set the newTotalCost as a number
+    setTotalCost(newTotalCost); // set the newTotalCost as a number
     console.log("New Total Cost:", newTotalCost);
   };
   
