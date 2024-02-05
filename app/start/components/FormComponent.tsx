@@ -9,7 +9,7 @@ import Receipt from '../components/Receipt'
 import User from '../../../models/user'
 
 export interface InitialFormData {
-  [key: string]: string | number;
+  [key: string | number];
 
     readonly softwareType: string;
     readonly noIntegrationRequired: number;
@@ -238,7 +238,7 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
     setTotalFunctionPoint(totalFunctionPoint); // Update state if needed
     
     const newTotalCost = calculateTotalCost(totalFunctionPoint, costPerFP); // Calculate total cost
-    // const newTotalCostNumber = parseFloat(newTotalCost.replace(/[^0-9.-]+/g, ''));
+   
     
     setTotalCost(newTotalCost); // Parse and set the newTotalCost as a number
     console.log("New Total Cost:", newTotalCost);
