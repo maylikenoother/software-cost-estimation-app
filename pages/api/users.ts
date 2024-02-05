@@ -1,21 +1,18 @@
-// Import necessary modules and configurations
+import { NextApiRequest, NextApiResponse } from 'next';
 import connect from '../../utility/mongo';
 import User, { IUser } from '../../models/user'; // Import IUser
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Connect to the database
-connect();
-
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  await connect();
   try {
     // Use proper HTTP status codes
     switch (req.method) {
       case 'GET':
-        // Handle the GET request to retrieve a user by ID
-        const userId = req.query.id;
-        const user: IUser | null = await User.findById(userId); // Use IUser here
+        const userId = req.query.id as string; // Cast to string if needed
+        const user = await User.findById(userId);
         if (user) {
           res.status(200).json({ success: true, data: user });
         } else {
@@ -24,16 +21,14 @@ export default async function handler(req, res) {
         break;
 
       case 'POST':
-        // Handle the POST request to create a new user
         const newUser = new User(req.body);
         await newUser.save();
         res.status(201).json({ success: true, data: newUser });
         break;
 
       case 'PUT':
-        // Handle the PUT request to update a user
-        const userIdToUpdate = req.query.id;
-        const updatedUser = await User.findByIdAndUpdate(userIdToUpdate, req.body, {
+        const updatedUserId = req.query.id as string; // Cast to string if needed
+        const updatedUser = await User.findByIdAndUpdate(updatedUserId, req.body, {
           new: true,
         });
         if (updatedUser) {
@@ -44,9 +39,8 @@ export default async function handler(req, res) {
         break;
 
       case 'DELETE':
-        // Handle the DELETE request to delete a user
-        const userIdToDelete = req.query.id;
-        const deletedUser = await User.findByIdAndRemove(userIdToDelete);
+        const deletedUserId = req.query.id as string; // Cast to string if needed
+        const deletedUser = await User.findByIdAndRemove(deletedUserId);
         if (deletedUser) {
           res.status(200).json({ success: true, data: deletedUser });
         } else {
@@ -55,12 +49,10 @@ export default async function handler(req, res) {
         break;
 
       default:
-        // Handle other HTTP methods
         res.status(405).json({ success: false, message: 'Method not allowed' });
         break;
     }
   } catch (error) {
-    // Handle any errors and provide an error response
-    res.status(500).json({ success: false, error: error.message });
+    res.status(400).json({ success: false, error: error.message });
   }
 }
