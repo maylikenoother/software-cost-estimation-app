@@ -41,7 +41,7 @@ const Receipt: React.FC<ReceiptProps> = ({ formData, totalFunctionPoint, costPer
       const formattedTotalCost  = new Intl.NumberFormat('en-GB', {
         style: 'currency',
         currency: 'GBP',
-      }).format(parseFloat(totalCost).toFixed(2));
+      }).format(totalCost);
   
   return (
     <div data-testid="Receipt" className="bg-gray-100 min-h-screen flex items-center justify-center">
