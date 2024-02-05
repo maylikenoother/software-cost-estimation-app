@@ -52,7 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(405).json({ success: false, message: 'Method not allowed' });
         break;
     }
-  } catch (error: Error) { // Specify the type of error as Error
-    res.status(400).json({ success: false, error: error.message });
+  } catch (error) { // Remove the type annotation from the catch block
+    res.status(400).json({ success: false, error: (error as Error).message });
   }
 }
