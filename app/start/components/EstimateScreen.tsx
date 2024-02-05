@@ -37,7 +37,7 @@ interface EstimateScreenProps {
   handlePrevStep: () => void;
   handleNextStep: () => void;
   handleChangeTextArea: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  totalCost: string;
+  totalCost: number;
   costPerFP: number;
   handleCostPerFPChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   saveData: () => void;

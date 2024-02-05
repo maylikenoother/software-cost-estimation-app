@@ -274,7 +274,7 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
   
 
   const handleCostPerFPChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Parse the input value to a floating-point number
+  
     const newCostPerFP: number = parseFloat(event.target.value);
   
     // Update the costPerFP state with the new value
