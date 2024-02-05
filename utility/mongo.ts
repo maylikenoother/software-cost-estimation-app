@@ -3,12 +3,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const connect = async () => {
-  const dbURI = process.env.MONGODB_URI as string; // Assert the type as string
+  const dbURI = process.env.MONGODB_URI as string;
 
   const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  };
+  } as mongoose.ConnectOptions;
 
   try {
     await mongoose.connect(dbURI, options);
