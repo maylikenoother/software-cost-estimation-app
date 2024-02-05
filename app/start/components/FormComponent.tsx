@@ -273,22 +273,22 @@ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
   };
   
 
-  const handleCostPerFPChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
-    const newCostPerFP = parseFloat(event.target.value);
+  const handleCostPerFPChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Parse the input value to a floating-point number
+    const newCostPerFP: number = parseFloat(event.target.value);
+  
+    // Update the costPerFP state with the new value
     setCostPerFP(newCostPerFP);
     console.log("newCostPerFP: " + newCostPerFP);
-
+  
     // Recalculate totalCost based on the updated costPerFP
-    const newTotalCost = (totalFunctionPoint * newCostPerFP).toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-    });
-
+    const newTotalCost: number = totalFunctionPoint * newCostPerFP;
+  
     // Update the totalCost state with the new value
     setTotalCost(newTotalCost);
     console.log("newTotalCost:" + newTotalCost);
   };
+  
 
 
   useEffect(() => {
