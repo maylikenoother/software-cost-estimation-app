@@ -79,7 +79,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="backupRecovery"
                             value={value}
-                            checked={formData.backupRecovery === value.toString()}
+                            checked={formData.backupRecovery === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -98,7 +98,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="dataCommunication"
                             value={value}
-                            checked={formData.dataCommunication === value.toString()}
+                            checked={formData.dataCommunication === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -117,7 +117,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="distributedProcessing"
                             value={value}
-                            checked={formData.distributedProcessing === value.toString()}
+                            checked={formData.distributedProcessing === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -136,7 +136,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="performance"
                             value={value}
-                            checked={formData.performance === value.toString()}
+                            checked={formData.performance === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -155,7 +155,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="operationalEnvironment"
                             value={value}
-                            checked={formData.operationalEnvironment === value.toString()}
+                            checked={formData.operationalEnvironment === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -174,7 +174,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="dataEntry"
                             value={value}
-                            checked={formData.dataEntry=== value.toString()}
+                            checked={formData.dataEntry=== value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -193,7 +193,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="multipleScreenEntry"
                             value={value}
-                            checked={formData.multipleScreenEntry === value.toString()}
+                            checked={formData.multipleScreenEntry === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -212,7 +212,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="masterFiles"
                             value={value}
-                            checked={formData.masterFiles === value.toString()}
+                            checked={formData.masterFiles === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -231,7 +231,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="complexFiles"
                             value={value}
-                            checked={formData.complexFiles === value.toString()}
+                            checked={formData.complexFiles === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -250,7 +250,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="internalProcessing"
                             value={value}
-                            checked={formData.internalProcessing === value.toString()}
+                            checked={formData.internalProcessing === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -269,7 +269,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="reusableCode"
                             value={value}
-                            checked={formData.reusableCode === value.toString()}
+                            checked={formData.reusableCode === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -288,7 +288,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="conversion"
                             value={value}
-                            checked={formData.conversion === value.toString()}
+                            checked={formData.conversion === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -307,7 +307,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="multipleInstallation"
                             value={value}
-                            checked={formData.multipleInstallation === value.toString()}
+                            checked={formData.multipleInstallation === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -326,7 +326,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="easyUse"
                             value={value}
-                            checked={formData.easyUse === value.toString()}
+                            checked={formData.easyUse === value}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
