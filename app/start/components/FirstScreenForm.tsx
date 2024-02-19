@@ -19,10 +19,10 @@ type InitialFormData = {
     multipleInstallation: number | null;
     easyUse: number | null;
     firstScreenName: string;
-    firstInputFields: number | null;
+    firstInputFields: number ;
     firstDataComplexity: "high" | "average" | "low";
     secondScreenName: string;
-    secondInputFields: number | null;
+    secondInputFields: number ;
     secondDataComplexity: "high" | "average" | "low";
     userName: string;
     userEmail: string;
