@@ -52,7 +52,6 @@ let initialFormData: InitialFormData = {
   multipleScreenEntry: null,
   masterFiles: null,
   complexFiles: null,
-  complexFiles: null,
   internalProcessing: null,
   reusableCode: null,
   conversion: null,
