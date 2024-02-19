@@ -13,26 +13,26 @@ export interface InitialFormData {
 
     readonly softwareType: string;
     readonly noIntegrationRequired: number;
-    readonly screens: number;
-    readonly backupRecovery: number;
-    readonly dataCommunication: number;
-    readonly distributedProcessing: number;
-    readonly performance: number;
-    readonly operationalEnvironment: number;
-    readonly dataEntry: number;
-    readonly multipleScreenEntry: number;
-    readonly masterFiles: number;
-    readonly complexFiles: number;
-    readonly internalProcessing: number;
-    readonly reusableCode: number;
-    readonly conversion: number;
-    readonly multipleInstallation: number;
-    readonly easyUse: number;
+    readonly screens: number | null;
+    readonly backupRecovery: number | null;
+    readonly dataCommunication: number | null;
+    readonly distributedProcessing: number | null;
+    readonly performance: number | null;
+    readonly operationalEnvironment: number | null;
+    readonly dataEntry:number | null;
+    readonly multipleScreenEntry: number | null;
+    readonly masterFiles: number | null;
+    readonly complexFiles: number | null;
+    readonly internalProcessing: number | null;
+    readonly reusableCode: number | null;
+    readonly conversion: number | null;
+    readonly multipleInstallation: number | null;
+    readonly easyUse: number | null;
     readonly firstScreenName: string;
-    readonly firstInputFields: number;
+    readonly firstInputFields: number | null;
     readonly firstDataComplexity: "high" | "average" | "low";
     readonly secondScreenName: string;
-    readonly secondInputFields: number;
+    readonly secondInputFields: number | null;
     readonly secondDataComplexity: "high" | "average" | "low";
     readonly userName: string;
     readonly userEmail: string;
@@ -41,27 +41,28 @@ export interface InitialFormData {
 
 let initialFormData: InitialFormData = {
   softwareType: '',
-  noIntegrationRequired: 0,
-  screens: 0,
-  backupRecovery: 0,
-  dataCommunication: 0,
-  distributedProcessing: 0,
-  performance: 0,
-  operationalEnvironment: 0,
-  dataEntry: 0,
-  multipleScreenEntry: 0,
-  masterFiles: 0,
-  complexFiles: 0,
-  internalProcessing: 0,
-  reusableCode: 0,
-  conversion: 0,
-  multipleInstallation: 0,
-  easyUse: 0,
+  noIntegrationRequired: null,
+  screens: null,
+  backupRecovery: null,
+  dataCommunication:null,
+  distributedProcessing: null,
+  performance: null,
+  operationalEnvironment: null,
+  dataEntry: null,
+  multipleScreenEntry: null,
+  masterFiles: null,
+  complexFiles: null,
+  complexFiles: null,
+  internalProcessing: null,
+  reusableCode: null,
+  conversion: null,
+  multipleInstallation: null,
+  easyUse: null,
   firstScreenName: '',
-  firstInputFields: 0,
+  firstInputFields: null,
   firstDataComplexity: "low",
   secondScreenName: '',
-  secondInputFields: 0,
+  secondInputFields: null,
   secondDataComplexity: "low",
   userName: '',
   userEmail: '',
@@ -212,15 +213,24 @@ const FormComponent = () => {
     if (prevStep) setStep(prevStep);
   };
 
- // Correct typing for an input change event handler
-const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+ // Correct typing for input change event handler
+ const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
   const { name, value } = event.target;
   
-  setFormData((prevData) => ({
-    ...prevData,
-    [name]: value, // Ensure this assignment is type-safe
-  }));
+  // Check if the input type is 'radio' and ensure numerical values are handled correctly
+  if (event.target.type === 'radio') {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: Number(value) // Parse radio input values as integers
+    }));
+  } else {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value // Handle other input types normally
+    }));
+  }
 };
+
 
 
   const handleChangeTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>)  => {

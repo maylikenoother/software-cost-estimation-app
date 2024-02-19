@@ -3,32 +3,32 @@ import PropTypes , { Validator }  from 'prop-types';
 
 // Define the InitialFormData type
 type InitialFormData = {
-  softwareType: string;
-  noIntegrationRequired: number;
-  screens: number;
-  backupRecovery: number;
-  dataCommunication: number;
-  distributedProcessing: number;
-  performance: number;
-  operationalEnvironment: number;
-  dataEntry: number;
-  multipleScreenEntry: number;
-  masterFiles: number;
-  complexFiles: number;
-  internalProcessing: number;
-  reusableCode: number;
-  conversion: number;
-  multipleInstallation: number;
-  easyUse: number;
-  firstScreenName: string;
-  firstInputFields: number;
-  firstDataComplexity: "high" | "average" | "low";
-  secondScreenName: string;
-  secondInputFields: number;
-  secondDataComplexity: "high" | "average" | "low";
-  userName: string;
-  userEmail: string;
-  appDescription: string;
+    softwareType: string;
+    noIntegrationRequired: number;
+    screens: number | null;
+    backupRecovery: number | null;
+    dataCommunication: number | null;
+    distributedProcessing: number | null;
+    performance: number | null;
+    operationalEnvironment: number | null;
+    dataEntry:number | null;
+    multipleScreenEntry: number | null;
+    masterFiles: number | null;
+    complexFiles: number | null;
+    internalProcessing: number | null;
+    reusableCode: number | null;
+    conversion: number | null;
+    multipleInstallation: number | null;
+    easyUse: number | null;
+    firstScreenName: string;
+    firstInputFields: number | null;
+    firstDataComplexity: "high" | "average" | "low";
+    secondScreenName: string;
+    secondInputFields: number | null;
+    secondDataComplexity: "high" | "average" | "low";
+    userName: string;
+    userEmail: string;
+    appDescription: string;
 };
 
 interface EstimateScreenProps {
@@ -96,12 +96,17 @@ const EstimateScreen: React.FC<EstimateScreenProps> = ({
     return isValid;
   };
 
+  const formattedTotalCost  = new Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency: 'GBP',
+  }).format(totalCost);
+
   return (
     <div data-testid="estimate" className="bg-lime-950 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Estimation</h2>
 
-        <p className="text-lg font-semibold text-gray-800 mb-4">Estimated Cost: {totalCost}</p>
+        <p className="text-lg font-semibold text-gray-800 mb-4">Estimated Cost: {formattedTotalCost}</p>
 
         <div>
           <label className="text-gray-500 text-xs font-semibold block mb-2">Cost per FP:</label>

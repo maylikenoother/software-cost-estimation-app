@@ -2,32 +2,32 @@ import React, { ChangeEvent } from 'react';
 
 // Define the InitialFormData type
 type InitialFormData = {
-  softwareType: string;
-  noIntegrationRequired: number;
-  screens: number;
-  backupRecovery: number;
-  dataCommunication: number;
-  distributedProcessing: number;
-  performance: number;
-  operationalEnvironment: number;
-  dataEntry: number;
-  multipleScreenEntry: number;
-  masterFiles: number;
-  complexFiles: number;
-  internalProcessing: number;
-  reusableCode: number;
-  conversion: number;
-  multipleInstallation: number;
-  easyUse: number;
-  firstScreenName: string;
-  firstInputFields: number;
-  firstDataComplexity: "high" | "average" | "low";
-  secondScreenName: string;
-  secondInputFields: number;
-  secondDataComplexity: "high" | "average" | "low";
-  userName: string;
-  userEmail: string;
-  appDescription: string;
+    softwareType: string;
+    noIntegrationRequired: number;
+    screens: number | null;
+    backupRecovery: number | null;
+    dataCommunication: number | null;
+    distributedProcessing: number | null;
+    performance: number | null;
+    operationalEnvironment: number | null;
+    dataEntry:number | null;
+    multipleScreenEntry: number | null;
+    masterFiles: number | null;
+    complexFiles: number | null;
+    internalProcessing: number | null;
+    reusableCode: number | null;
+    conversion: number | null;
+    multipleInstallation: number | null;
+    easyUse: number | null;
+    firstScreenName: string;
+    firstInputFields: number | null;
+    firstDataComplexity: "high" | "average" | "low";
+    secondScreenName: string;
+    secondInputFields: number | null;
+    secondDataComplexity: "high" | "average" | "low";
+    userName: string;
+    userEmail: string;
+    appDescription: string;
 };
 
 interface WeightQuestionsProps {
@@ -45,23 +45,23 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
   }) => {
     const isFormValid = () => {
         return (
-          formData.backupRecovery !== 0 &&
-          formData.dataCommunication !== 0 &&
-          formData.distributedProcessing !== 0 &&
-          formData.performance !== 0 &&
-          formData.operationalEnvironment !== 0 &&
-          formData.dataEntry !== 0 &&
-          formData.multipleScreenEntry !== 0 &&
-          formData.masterFiles !== 0 &&
-          formData.complexFiles !== 0 &&
-          formData.internalProcessing !== 0 &&
-          formData.reusableCode !== 0 &&
-          formData.conversion !== 0 &&
-          formData.multipleInstallation !== 0 &&
-          formData.easyUse !== 0
+            formData.backupRecovery !== undefined &&
+            formData.dataCommunication !== undefined &&
+            formData.distributedProcessing !== undefined &&
+            formData.performance !== undefined &&
+            formData.operationalEnvironment !== undefined &&
+            formData.dataEntry !== undefined &&
+            formData.multipleScreenEntry !== undefined &&
+            formData.masterFiles !== undefined &&
+            formData.complexFiles !== undefined &&
+            formData.internalProcessing !== undefined &&
+            formData.reusableCode !== undefined &&
+            formData.conversion !== undefined &&
+            formData.multipleInstallation !== undefined &&
+            formData.easyUse !== undefined
         );
-      };
-      
+    };
+    
 
   return (
     <div data-testid="weight"  className="bg-lime-950 min-h-screen flex items-center justify-center">
@@ -79,7 +79,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
                             type="radio"
                             name="backupRecovery"
                             value={value}
-                            checked={formData.backupRecovery === value}
+                            checked={formData.backupRecovery === (value)}
                             onChange={(e) => handleChangeInput(e)}
                             className="mr-1"
                         />
@@ -128,7 +128,7 @@ const WeightQuestions: React.FC<WeightQuestionsProps> = ({
             </div>
 
             <div className="mb-4">
-                    <p>Is performance critical?</p>
+                    <p>4. Is performance critical?</p>
                     <div className="flex items-center space-x-4">
                     {[0, 1, 2, 3, 4, 5].map((value) => (
                         <label key={value} className="flex items-center space-x-2">
