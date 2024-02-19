@@ -12,7 +12,7 @@ export interface InitialFormData {
   [key: string]: any;
 
     readonly softwareType: string;
-    readonly noIntegrationRequired: number;
+    readonly noIntegrationRequired: number | null;
     readonly screens: number | null;
     readonly backupRecovery: number | null;
     readonly dataCommunication: number | null;
