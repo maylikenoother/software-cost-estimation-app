@@ -134,14 +134,14 @@ const FormComponent = () => {
       formData.firstDataComplexity,
       formData.secondDataComplexity
     );
-  
-    const counts : { [key: string]: number } = {
-      EIs: formData.firstInputFields + formData.secondInputFields,
-      EOs: formData.screens,
-      EQs: formData.screens,
-      ILFs: formData.screens + formData.noIntegrationRequired,
-      EIFs: formData.noIntegrationRequired,
+    
+    const counts: { [key: string]: number } = {
+      EIs: formData.firstInputFields! + formData.secondInputFields!,
+      EOs: formData.screens!,
+      EQs: formData.screens!,
+      ILFs: formData.screens! + formData.noIntegrationRequired!,
     };
+    
   
     const complexityWeights = {
       low: {
