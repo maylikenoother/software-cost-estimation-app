@@ -1,32 +1,32 @@
 import React, { ChangeEvent } from 'react';
 
 type InitialFormData = {
-    softwareType: string;
-    noIntegrationRequired: number;
-    screens: number | null;
-    backupRecovery: number | null;
-    dataCommunication: number | null;
-    distributedProcessing: number | null;
-    performance: number | null;
-    operationalEnvironment: number | null;
-    dataEntry:number | null;
-    multipleScreenEntry: number | null;
-    masterFiles: number | null;
-    complexFiles: number | null;
-    internalProcessing: number | null;
-    reusableCode: number | null;
-    conversion: number | null;
-    multipleInstallation: number | null;
-    easyUse: number | null;
-    firstScreenName: string;
-    firstInputFields: number ;
-    firstDataComplexity: "high" | "average" | "low";
-    secondScreenName: string;
-    secondInputFields: number ;
-    secondDataComplexity: "high" | "average" | "low";
-    userName: string;
-    userEmail: string;
-    appDescription: string;
+  softwareType: string;
+  noIntegrationRequired: number;
+  screens: number;
+  backupRecovery: number;
+  dataCommunication: number;
+  distributedProcessing: number;
+  performance: number | null;
+  operationalEnvironment: number;
+  dataEntry:number;
+  multipleScreenEntry: number;
+  masterFiles: number;
+  complexFiles: number;
+  internalProcessing: number;
+  reusableCode: number;
+  conversion: number | null;
+  multipleInstallation: number;
+  easyUse: number;
+  firstScreenName: string;
+  firstInputFields: number;
+  firstDataComplexity: "high" | "average" | "low";
+  secondScreenName: string;
+  secondInputFields: number;
+  secondDataComplexity: "high" | "average" | "low";
+  userName: string;
+  userEmail: string;
+  appDescription: string;
 };
 
 interface FirstScreenFormProps {
