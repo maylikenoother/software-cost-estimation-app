@@ -29,10 +29,10 @@ export interface InitialFormData {
     readonly multipleInstallation: number | null;
     readonly easyUse: number | null;
     readonly firstScreenName: string;
-    readonly firstInputFields: number ;
+    readonly firstInputFields: number | null;
     readonly firstDataComplexity: "high" | "average" | "low";
     readonly secondScreenName: string;
-    readonly secondInputFields: number ;
+    readonly secondInputFields: number | null; 
     readonly secondDataComplexity: "high" | "average" | "low";
     readonly userName: string;
     readonly userEmail: string;
