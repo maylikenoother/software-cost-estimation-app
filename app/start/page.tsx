@@ -1,12 +1,5 @@
-import React from 'react';
-import FormComponent from './components/FormComponent';
+import EstimatorWorkbench from "./components/EstimatorWorkbench";
 
-const Page = () => {
-  return (
-    <div>
-      <FormComponent />
-    </div>
-  );
-};
-
-export default Page;
+export default function StartPage() {
+  return <EstimatorWorkbench />;
+}
