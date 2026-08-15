@@ -1,5 +1,7 @@
 "use client";
 
+/** Verdant Ledger — transparent Function Point planning workspace with concise, non-numbered cues. */
+
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
@@ -91,14 +93,14 @@ export default function EstimatorWorkbench() {
           <p className="lede">Size the functional scope, make your delivery assumptions visible, and leave with an effort range—not a mysterious single number.</p>
         </div>
         <aside className="method-note">
-          <span className="note-icon">01</span>
+          <span className="note-icon">FPA</span>
           <p><strong>Built around function points.</strong> Count what the software must do, then turn that size into effort using your team&apos;s productivity and rate.</p>
         </aside>
       </section>
 
       <div className="estimator-layout">
         <section className="input-column" aria-label="Estimation inputs">
-          <div className="section-heading"><span>01</span><div><p>Functional inventory</p><h2>What will the software do?</h2></div></div>
+          <div className="section-heading"><span className="section-marker" aria-hidden="true" /><div><p>Functional inventory</p><h2>What will the software do?</h2></div></div>
           <p className="section-copy">Enter the count for each function type at low, average, or high complexity. The model applies the standard Function Point weight for each row.</p>
 
           <div className="inventory-table" role="table" aria-label="Function point inventory">
@@ -113,7 +115,7 @@ export default function EstimatorWorkbench() {
             ))}
           </div>
 
-          <div className="section-heading compact"><span>02</span><div><p>Commercial assumptions</p><h2>Make the cost drivers explicit.</h2></div></div>
+          <div className="section-heading compact"><span className="section-marker" aria-hidden="true" /><div><p>Commercial assumptions</p><h2>Make the cost drivers explicit.</h2></div></div>
           <div className="assumption-grid">
             <NumberInput label="Hours per function point" value={productivityHoursPerFP} min={1} max={80} onChange={setProductivityHoursPerFP} help="Use your team’s benchmark where available." />
             <NumberInput label="Blended hourly rate (£)" value={hourlyRate} min={1} max={2000} onChange={setHourlyRate} help="Include the roles needed to deliver the work." />
@@ -123,7 +125,7 @@ export default function EstimatorWorkbench() {
           </div>
 
           <button type="button" className="adjustment-toggle" aria-expanded={showAdjustment} onClick={() => setShowAdjustment((open) => !open)}>
-            <span>03</span><strong>Fine-tune system characteristics</strong><i>{showAdjustment ? "−" : "+"}</i>
+            <span className="section-marker" aria-hidden="true" /><strong>Fine-tune system characteristics</strong><i>{showAdjustment ? "−" : "+"}</i>
           </button>
           {showAdjustment ? (
             <div className="characteristics-card">
